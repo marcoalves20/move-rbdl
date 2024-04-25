@@ -92,6 +92,8 @@ Joint get_rbdl_joint(const JointPtr &urdf_joint)
                                      urdf_joint->axis.y, urdf_joint->axis.z));
   } else if (urdf_joint->type == UrdfJointType::FIXED) {
     rbdl_joint = Joint(JointTypeFixed);
+  } else if (urdf_joint->type == UrdfJointType::SPHERICAL) {
+    rbdl_joint = Joint(JointTypeSpherical);
   } else if (urdf_joint->type == UrdfJointType::FLOATING) {
     // todo: what order of DoF should be used?
     rbdl_joint = Joint(
